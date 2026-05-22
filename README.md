@@ -66,11 +66,13 @@ Double-click open-folder-html-protocol.reg and accept the Windows UAC prompt. Th
     myexplorer:// -> Launches default explorer.exe
     myexplorersubfolder:// -> Routes through C:\Windows\open-folder.exe to handle explicit path variables securely.
 ```
-	
+
 ###	3. Test the Setup  
-
-Open open-folder.html in any standard web browser (Chrome, Edge, Firefox). Click on the configured test buttons (e.g., 打開資料夾System32 or 打開資料夾C:\Windows). Your browser will prompt you for permission to open the external handler—allow it, and the native folder will pop open immediately.  
-
+```
+Open open-folder.html in any standard web browser (Chrome, Edge, Firefox). 
+Click on the configured test buttons (e.g., 打開資料夾System32 or 打開資料夾C:\Windows). 
+Your browser will prompt you for permission to open the external handler—allow it, and the native folder will pop open immediately.  
+```
 
 ## 🗑️ Uninstallation
 
