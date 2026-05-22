@@ -21,6 +21,7 @@ This project uses a compiled C++ Win32 wrapper (`open-folder.exe`) to securely h
 
 * `open-folder.html`: The web frontend interface. Features an interactive UI with dynamic path injection and standard Javascript `btoa()` encoding to transport full paths safely.
 * `open-folder.exe`: The pre-compiled C++ Win32 background handler (built via MinGW). It intercepts the browser URL argument, strips the protocol prefix, decodes the path string, and calls the native Windows API.
+* `open-folder.cpp`: C++ Win32 source code.
 * `open-folder-html-protocol.reg`: Registry script to register the custom URI schemes into `HKEY_CLASSES_ROOT`.
 * `open-folder-html-remove-protocol.reg`: Cleanup script to completely remove the custom URI protocols from your system registry.
 * `demo.JPG`: Visual preview/screenshot of the application workflow in action.
