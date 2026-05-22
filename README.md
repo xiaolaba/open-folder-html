@@ -61,9 +61,11 @@ copy open-folder.exe C:\Windows\
 ### 2. Register the URL Protocols
 
 Double-click open-folder-html-protocol.reg and accept the Windows UAC prompt. This creates the following protocol paths inside your registry:  
+```
     mynotepad:// -> Launches notepad.exe
     myexplorer:// -> Launches default explorer.exe
     myexplorersubfolder:// -> Routes through C:\Windows\open-folder.exe to handle explicit path variables securely.
+```
 	
 ###	3. Test the Setup  
 
@@ -73,11 +75,10 @@ Open open-folder.html in any standard web browser (Chrome, Edge, Firefox). Click
 ## 🗑️ Uninstallation
 
 If you wish to remove these configurations from your machine completely:  
-
-    Run the open-folder-html-remove-protocol.reg file to wipe out the registry keys.  
-
+```
+	Run the open-folder-html-remove-protocol.reg file to wipe out the registry keys.  
     Delete C:\Windows\open-folder.exe.  
-	
+```	
 	
 ## 🔒 Security Note  
 
