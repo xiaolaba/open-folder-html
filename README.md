@@ -31,21 +31,21 @@ This project uses a compiled C++ Win32 wrapper (`open-folder.exe`) to securely h
 
 Standard browser security restrictions prevent websites from directly calling local system binaries. This project bypasses that safely using the following flow:
 
-[ HTML Page / Click Link ]
-│  (Paths are Base64 encoded to preserve UTF-8/spaces)
-▼
-[ Browser URI Scheme Invocation ] -> myexplorersubfolder://<base64_string>
-│
-▼
-[ Windows Registry Router ] -> Routes arguments to C:\Windows\open-folder.exe
-│
-▼
-[ open-folder.exe ]
-│  1. Strips URI scheme header
-│  2. Decodes Base64 string to a clean UTF-8 Windows string
-│  3. Sanitizes arguments
-▼
-[ Windows API (explorer.exe / ShellExecute) ] -> Opens the physical target folder
+[ HTML Page / Click Link ]  
+│  (Paths are Base64 encoded to preserve UTF-8/spaces)  
+▼  
+[ Browser URI Scheme Invocation ] -> myexplorersubfolder://<base64_string>  
+│  
+▼  
+[ Windows Registry Router ] -> Routes arguments to C:\Windows\open-folder.exe  
+│  
+▼  
+[ open-folder.exe ]  
+│  1. Strips URI scheme header  
+│  2. Decodes Base64 string to a clean UTF-8 Windows string  
+│  3. Sanitizes arguments  
+▼  
+[ Windows API (explorer.exe / ShellExecute) ] -> Opens the physical target folder  
 
 
 ---
