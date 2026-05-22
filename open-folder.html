@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>open folder HTML</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; background: #f5f7fa; }
+        .container { max-width: 1550px; margin: 0 auto; }
+        h1 { color: #2c3e50; text-align: center; }
+		
+        .controls { background: white; padding: 5px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 10px; }
+        #fileInput { font-size: 16px; padding: 5px; }
+		#searchInput { width: 97%; padding: 5px; font-size: 16px; border: 2px solid #3498db; border-radius: 5px; margin: 5px 0; }
+
+
+        //table { border: 1px solid black; width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+
+        //th, td { border: 1px solid black; padding: 6px 12px; border: 1px solid #ddd; text-align: left; vertical-align: top; }
+        //th, td { padding: 6px 12px; border: 1px solid #ddd; text-align: left; vertical-align: top; }
+
+        th { background: #3498db; color: white; position: sticky; top: 0; z-index: 10; }
+        tr:hover { background: #00f8ff; cursor: pointer; }
+        
+        //.filename { font-weight: bold; color: #2980b9; }
+        //.sheetname { font-weight: bold; color: #8e44ad; }
+        //.sitename { font-weight: bold; color: #e67e22; }
+        
+		.filename { font-weight: normal; color: #2980b9; }
+        .sheetname { font-weight: normal; color: #8e44ad; }
+        .sitename { font-weight: normal; color: #e67e22; }
+        
+		/* 更多鮮豔高亮顏色（共8種） */
+        .highlight-0 { background-color: #ff6666; color: white; font-weight: bold; }
+        .highlight-1 { background-color: #ffeb3b; color: black; font-weight: bold; }
+        .highlight-2 { background-color: #42a5f5; color: white; font-weight: bold; }
+        .highlight-3 { background-color: #66ff66; color: black; font-weight: bold; }
+        .highlight-4 { background-color: #ff99ff; color: black; font-weight: bold; }   /* 粉紫 */
+        .highlight-5 { background-color: #ffaa00; color: black; font-weight: bold; }   /* 橘色 */
+        .highlight-6 { background-color: #9b59b6; color: white; font-weight: bold; }   /* 紫色 */
+        .highlight-7 { background-color: #00ffff; color: black; font-weight: bold; }   /* 青色 */
+        
+        .result-count { margin: 10px 0; font-weight: bold; color: #27ae60; }
+        button { padding: 10px 18px; font-size: 16px; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: 8px; }
+        button:hover { background: #c0392b; }
+    </style>
+</head>
+<body>
+
+
+
+
+		<br>
+		配合 C++ 改用 UTF-8 解析，網頁端的 JavaScript 要改用最標準、支援全語系（包含中文和特殊符號）的 btoa 編碼寫法
+		<br>
+<!--
+		<button class="btn" onclick="openLocalFolder('D:\\platform-tools_r33')">打開資料夾platform-tools</button>
+		<br>
+		<a href="javascript:void(0)" class="folder-link" onclick="openLocalFolder('D:\\platform-tools_r33')">打開資料夾platform-tools</a>		
+		<br>
+-->
+
+		
+		<button class="btn" onclick="openLocalFolder('C:\\Windows\\System32')">打開資料夾System32</button>
+		<br>		
+		
+		<a href="javascript:void(0)" class="folder-link" 
+			onclick="openLocalFolder('C:\\Windows\\')"
+		>打開資料夾C:\Windows</a>
+		<br>		
+		
+
+		<a href="javascript:void(0)" class="folder-link" onclick="openLocalFolder('C:\\Windows\\System32')">打開資料夾System32</a>
+		<br>
+		<a href="mynotepad://" class="btn">啟用Notepad.exe</a>
+		<br>
+		<a href="myexplorer://" class="btn">File-Explorer</a>			
+			
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<script>
+		function openLocalFolder(path) {
+			// 使用 UTF-8 方式進行 Base64 編碼，確保中英文與符號完美相容
+			const utf8Bytes = new TextEncoder().encode(path);
+			let binString = "";
+			for (let i = 0; i < utf8Bytes.length; i++) {
+				binString += String.fromCharCode(utf8Bytes[i]);
+			}
+			const base64Path = btoa(binString);
+			
+			// 呼叫協定
+			window.location.href = "myexplorersubfolder://" + base64Path;
+		}
+		</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+Windows Registry Editor Version 5.00
+
+; --- REGISTER NOTEPAD PROTOCOL ---
+;;;; [HKEY_CLASSES_ROOT\my_notepad] do not uses under line, HTML and clicking has no launch
+[HKEY_CLASSES_ROOT\mynotepad]
+@="URL:Notepad Protocol"
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\mynotepad\shell]
+[HKEY_CLASSES_ROOT\mynotepad\shell\open]
+[HKEY_CLASSES_ROOT\mynotepad\shell\open\command]
+@="\"C:\\Windows\\System32\\notepad.exe\""
+
+
+
+; --- REGISTER FILE EXPLORER PROTOCOL ---
+[HKEY_CLASSES_ROOT\myexplorer]
+@="URL:File Explorer Protocol"
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\myexplorer\shell]
+[HKEY_CLASSES_ROOT\myexplorer\shell\open]
+[HKEY_CLASSES_ROOT\myexplorer\shell\open\command]
+@="\"C:\\Windows\\explorer.exe\""
+
+
+
+
+
+; --- REGISTER FILE EXPLORER PROTOCOL with specific subfolder, HTML/browser pass the argument ---
+; uses minGW to build open-folder.cpp to exeopen-folder.exe, then copy to c:\windows\
+[HKEY_CLASSES_ROOT\myexplorersubfolder]
+@="URL:File Explorer Protocol"
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\myexplorersubfolder\shell]
+[HKEY_CLASSES_ROOT\myexplorersubfolder\shell\open]
+[HKEY_CLASSES_ROOT\myexplorersubfolder\shell\open\command]
+@="\"C:\\Windows\\open-folder.exe\" \"%1\""
